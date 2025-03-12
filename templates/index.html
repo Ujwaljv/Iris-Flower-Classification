@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris Flower Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+            position: relative;
+        }
+        .container::before {
+            content: "";
+            background: url('https://source.unsplash.com/300x200/?flower,iris') no-repeat center center/cover;
+            width: 100%;
+            height: 150px;
+            display: block;
+            border-radius: 10px 10px 0 0;
+        }
+        h2 {
+            margin-top: 10px;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        input[type="submit"] {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #d9534f;
+        }
+        .result {
+            font-size: 18px;
+            color: #333;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Iris Flower Predictor</h2>
+        <form action='/predict' method="POST">
+            <label>Sepal Length:</label>
+            <input type="text" name='sepal_length'><br>
+            <label>Sepal Width:</label>
+            <input type="text" name='sepal_width'><br>
+            <label>Petal Length:</label>
+            <input type="text" name='petal_length'><br>
+            <label>Petal Width:</label>
+            <input type="text" name='petal_width'><br>
+            <div class="result">Species: {{result}}</div>
+            <input type='submit' value='Predict'>
+        </form>
+    </div>
+</body>
+</html>
